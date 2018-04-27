@@ -29,12 +29,12 @@ img {
   display: grid;
   grid-gap: 20px;
   grid-template-areas:
-    "hero hero cta1"
-    "hero hero cta2"
+    "section__hero section__hero cta1"
+    "section__hero section__hero cta2"
 }
 
-.hero {
-  grid-area: hero;
+.section__hero {
+  grid-area: section__hero;
   min-height: 400px;
   background: white url(../images/site-album-compass.jpg);
   background-size: cover;
@@ -160,9 +160,6 @@ img {
   }
 }
 
-
-
-
 @media (max-width: 1000px) {
   .menu {
     order: -1;
@@ -201,9 +198,9 @@ img {
 }
 
 @media (max-width: 700px) {
-  .top {
+  .l-siteTop  {
     grid-template-areas:
-      "hero hero"
+      "section__hero section__hero"
       "cta1 cta2"
   }
   /* About */
@@ -213,9 +210,9 @@ img {
 }
 
 @media (max-width: 500px) {
-  .top {
+  .l-siteTop  {
     grid-template-areas:
-      "hero"
+      "section__hero"
       "cta1"
       "cta2"
   }
