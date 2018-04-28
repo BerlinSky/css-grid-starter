@@ -19,6 +19,10 @@ img {
   max-width: 100%;
 }
 
+h3 {
+  color: tomato;
+}
+
 .l-siteContainerGrid {
   display: grid;
   grid-gap: 20px;
@@ -203,7 +207,7 @@ img {
       "section__hero section__hero"
       "cta1 cta2"
   }
-  /* About */
+
   .about {
     grid-template-columns: 1fr;
   }
