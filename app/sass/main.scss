@@ -33,8 +33,8 @@ h3 {
   display: grid;
   grid-gap: 20px;
   grid-template-areas:
-    "section__hero section__hero pricePanel1"
-    "section__hero section__hero pricePanel2"
+    "section__hero section__hero pricePanel--tourOne"
+    "section__hero section__hero pricePanel--tourTwo"
 }
 
 .section__hero {
@@ -44,6 +44,7 @@ h3 {
   background-size: cover;
   background-position: bottom right;
   padding: 50px;
+
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -61,12 +62,12 @@ h3 {
   margin: 0;
 }
 
-.pricePanel1 {
-  grid-area: pricePanel1;
+.pricePanel--tourOne {
+  grid-area: pricePanel--tourOne;
 }
 
-.pricePanel2 {
-  grid-area: pricePanel2;
+.pricePanel--tourTwo {
+  grid-area: pricePanel--tourTwo;
 }
 
 .price {
@@ -99,15 +100,15 @@ h3 {
   display: none;
 }
 
-/* Features! */
+/* activities! */
 
-.features {
+.activities {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
-.feature {
+.activity {
   background: white;
   padding: 10px;
   border: 1px solid white;
@@ -115,24 +116,36 @@ h3 {
   box-shadow: 0 0 4px  rgba(0,0,0,0.1);
 }
 
-.feature .icon {
+.activity .icon {
   font-size: 50px;
 }
-.feature p {
+.activity p {
   color: rgba(0,0,0,0.5);
 }
 
-/* About Section */
-
-.about {
-  background: white;
-  padding:50px;
+.infoPanel {
+  background: #fff;
+  padding: 50px;
   display: grid;
   grid-template-columns: 400px 1fr;
   align-items: center;
-}
 
-/* Gallery! */
+  .infoPanel__details {
+    padding: 50px;
+
+    h2, p {
+      color: rgb(39, 35, 35);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+}
 
 .siteGallery {
   display: grid;
@@ -155,11 +168,6 @@ h3 {
     display: block;
     content: '';
     height: 10px;
-    background: linear-gradient(to var(--direction, left), var(--yellow), transparent);
-  }
-
-  h2:after {
-    --direction: right;
   }
 }
 
@@ -204,10 +212,10 @@ h3 {
   .l-siteTop  {
     grid-template-areas:
       "section__hero section__hero"
-      "pricePanel1 pricePanel2"
+      "pricePanel--tourOne pricePanel--tourTwo"
   }
 
-  .about {
+  .infoPanel {
     grid-template-columns: 1fr;
   }
 }
@@ -216,7 +224,7 @@ h3 {
   .l-siteTop  {
     grid-template-areas:
       "section__hero"
-      "pricePanel1"
-      "pricePanel2"
+      "pricePanel--tourOne"
+      "pricePanel--tourTwo"
   }
 }
