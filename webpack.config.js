@@ -17,7 +17,7 @@ const providerPlugin = new webpack.ProvidePlugin({
 const cleanWebPackPlugin = new CleanWebpackPlugin(['./dist'])
 
 const entryConfig = {
-  vendor: ['jquery', 'select2', 'ramda', 'validate.js'],
+  // vendor: ['jquery', 'select2', 'ramda', 'validate.js'],
   index: [
     path.resolve(__dirname, './app/js/main.js'),
     path.resolve(__dirname, './app/sass/main.scss')
@@ -155,10 +155,10 @@ module.exports = (env = {}) => {
       providerPlugin,
       cleanWebPackPlugin,
 
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        filename: 'vendor.js'
-      }),
+      // new webpack.optimize.CommonsChunkPlugin({
+      //   name: 'vendor',
+      //   filename: 'vendor.js'
+      // }),
 
       new HtmlWebpackPlugin({
         favicon: 'app/favicon.png',
