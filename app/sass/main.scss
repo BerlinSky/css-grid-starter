@@ -26,6 +26,10 @@
         display: flex;
         flex-direction: column;
 
+        @include break(sm) {
+          flex-direction: row;
+        }
+
         label {
           flex: none;
           display: block;
