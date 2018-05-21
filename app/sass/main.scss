@@ -4,164 +4,47 @@
 @import "modules/all-modules";
 @import "state/all-states";
 
+body {
+  background: #f5f5f5;
 
-//==========================================================================//
-// CSS Grid:
-//==========================================================================//
-button {
-  background: #ffc600;
-  border: 0;
-  padding: 10px 20px;
-}
+  .widgetContainer {
+    margin: 5px auto;
+    // background: tomato;
+    border: 1px solid #000;
+    max-width: 450px;
 
-img {
-  max-width: 100%;
-}
+    .searchContainer {
+      margin: 5px;
+      border: 1px solid yellow;
 
-h3 {
-  color: tomato;
-}
+      .searchInputGroups {
+        margin: 5px;
+        // background: tomato;
+        border: 1px solid red;
 
-.l-siteContainerGrid {
-  display: grid;
-  grid-gap: 20px;
-}
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
 
-.l-siteTop {
-  background: tomato;
-  display: grid;
-  grid-gap: 20px;
-  grid-template-areas:
-    "section__hero section__hero pricePanel--tourOne"
-    "section__hero section__hero pricePanel--tourTwo"
-}
+        .inputGroup, .buttonGroup, .messagePanel {
+          margin: 5px;
+          border: 1px solid blue;
 
-.section__hero {
-  grid-area: section__hero;
-  min-height: 400px;
-  background: white url(../images/site-album-compass.jpg);
-  background-size: cover;
-  background-position: bottom right;
-  padding: 50px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
 
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-}
+          input {
+            // background: tomato;
 
-.pricePanel {
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  align-content: center;
-}
+            flex-basis: 66%;
+          }
+        }
 
-.pricePanel p {
-  margin: 0;
-}
-
-.pricePanel--tourOne {
-  grid-area: pricePanel--tourOne;
-}
-
-.pricePanel--tourTwo {
-  grid-area: pricePanel--tourTwo;
-}
-
-.price {
-  font-size: 60px;
-  font-weight: 300;
-}
-
-/* activities! */
-
-.activities {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-.activity {
-  background: white;
-  padding: 10px;
-  border: 1px solid white;
-  text-align: center;
-  box-shadow: 0 0 4px  rgba(0,0,0,0.1);
-}
-
-.activity .icon {
-  font-size: 50px;
-}
-.activity p {
-  color: rgba(0,0,0,0.5);
-}
-
-.infoPanel {
-  background: #fff;
-  padding: 50px;
-  display: grid;
-  grid-template-columns: 400px 1fr;
-  align-items: center;
-
-  .infoPanel__details {
-    padding: 50px;
-
-    h2, p {
-      color: rgb(39, 35, 35);
+       .buttonGroup {
+          justify-content: center;
+        }
+      }
     }
-
-    h2 {
-      font-size: 1.5rem;
-    }
-
-    p {
-      font-size: 1rem;
-    }
-  }
-}
-
-.siteGallery {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-
-  img {
-    width: 100%;
-  }
-
-  h2 {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    grid-gap: 20px;
-    align-items: center;
-  }
-
-  h2:before, h2:after {
-    display: block;
-    content: '';
-    height: 10px;
-  }
-}
-
-@media (max-width: 700px) {
-  .l-siteTop  {
-    grid-template-areas:
-      "section__hero section__hero"
-      "pricePanel--tourOne pricePanel--tourTwo"
-  }
-
-  .infoPanel {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 500px) {
-  .l-siteTop  {
-    grid-template-areas:
-      "section__hero"
-      "pricePanel--tourOne"
-      "pricePanel--tourTwo"
   }
 }
