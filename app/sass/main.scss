@@ -1,17 +1,15 @@
-// @import "theme/all-base-themes";
-// @import "base/all-base";
-// @import "layout/all-layouts";
-// @import "modules/all-modules";
-// @import "state/all-states";
+@import "theme/all-base-themes";
+@import "base/all-base";
+@import "layout/all-layouts";
+@import "modules/all-modules";
+@import "state/all-states";
 
 .widgetContainer {
-  margin: 5px auto;
+  margin: 15px;
   border: 1px solid #000;
-  // max-width: 450px;
 
   .searchContainer {
     margin: 5px;
-    // border: 1px solid yellow;
 
     .searchInputGroups {
       padding: 15px;
@@ -40,10 +38,10 @@
         .inputControl {
           flex: 1 1 auto;
           display: block;
+          font-size: 1.0rem;
           margin-bottom: 10px;
           margin-right: 8px;
           padding: 4px;
-          // margin-top: -4px;
         }
 
         .inputButton {
