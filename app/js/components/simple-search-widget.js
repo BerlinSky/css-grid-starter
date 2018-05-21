@@ -1,3 +1,5 @@
+import { compose } from "../library/functional"
+
 // Create searchContainer
 const searchContainer = (content) => {
   return `<div class="searchContainer">
@@ -43,6 +45,6 @@ const searchInputList = (content) => {
 }
 
 export const simpleSearchContainerMarkup = () => {
-  const markup = searchContainer(searchInputGroups(searchInputList()));
-  return markup;
+  const builder = compose(searchContainer, searchInputGroups, searchInputList);
+  return builder();
 }
