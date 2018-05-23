@@ -54,7 +54,7 @@ const renderFormInputs = (inputs) => {
   return inputs.map(input => `
     <div class="inputGroup">
       <label for="${input.inputName}">${input.labelText}</label>
-      <input class="inputControl" type="text" id="${input.inputName}" name="${input.inputName}" placeholder="${input.placeHolder}" />
+      <input class="inputControl js-searchInput" type="text" id="${input.inputName}" name="${input.inputName}" placeholder="${input.placeHolder}" />
     </div>
   `).join('');
 }

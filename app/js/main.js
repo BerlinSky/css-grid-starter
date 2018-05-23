@@ -4,12 +4,17 @@ import { simpleSearchContainerMarkup } from "./components/simple-search-widget"
 import { lastNameMin, magicIdLength } from "./components/validation/validation-rules"
 
 // Set up the input value: will be replaced Pick up the input value
-const lastNameInput = {
-  min: 1
+const lastNameInput = () => {
+  const elem = qs("input[name='lasttName'].js-searchInput ");
+  return { min: elem.value.length }
 }
 
-const magicIdInput = {
-  length: 6
+const magicIdInput = () => {
+  const elem = qs("input[name='magicName'].js-searchInput ");
+
+  console.log(elem.value.length);
+
+  return { length: elem.value.length };
 }
 
 const addEventListeners = () => {
@@ -17,10 +22,10 @@ const addEventListeners = () => {
 
   searchBtn.addEventListener("click", function() {
      // Validate
-     const validateResult = lastNameMin({ targetInput: lastNameInput, messageList: [] });
+     const validateResult = lastNameMin({ targetInput: lastNameInput(), messageList: [] });
      console.log(validateResult);
 
-     const validateResult2 = magicIdLength({ targetInput: magicIdInput, messageList: validateResult.messageList });
+     const validateResult2 = magicIdLength({ targetInput: magicIdInput(), messageList: validateResult.messageList });
      console.log(validateResult2);
   });
 
