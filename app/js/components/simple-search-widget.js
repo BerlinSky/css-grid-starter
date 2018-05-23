@@ -19,10 +19,10 @@ const searchInputList = (inputContent) => {
   return `
     ${inputContent}
     <div class="buttonGroup">
-      <button>Search</button>
+      <button class="inputButton">Search</button>
     </div>
     <div class="buttonGroup">
-      <button>Clear</button>
+      <button class="inputButton">Clear</button>
     </div>
     <div class="messagePanel">
       <div class="errorMessage">
@@ -54,7 +54,7 @@ const renderFormInputs = (inputs) => {
   return inputs.map(input => `
     <div class="inputGroup">
       <label for="${input.inputName}">${input.labelText}</label>
-      <input type="text" id="${input.inputName}" name="${input.inputName}" placeholder="${input.placeHolder}" />
+      <input class="inputControl" type="text" id="${input.inputName}" name="${input.inputName}" placeholder="${input.placeHolder}" />
     </div>
   `).join('');
 }
