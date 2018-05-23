@@ -6,10 +6,7 @@ export const lastNameMin = ({ targetInput, messageList = [] }) => {
       "The last name must contain at least 2 characters!"
     ]
   }
-  return {
-    targetInput,
-    messageList
-  };
+  return messageList
 }
 
 export const magicIdLength = ({ targetInput, messageList = [] }) => {
@@ -19,8 +16,5 @@ export const magicIdLength = ({ targetInput, messageList = [] }) => {
       "The magic ID must contain exact 5 characters!"
     ]
   }
-  return {
-    targetInput,
-    messageList
-  };
+  return messageList
 }

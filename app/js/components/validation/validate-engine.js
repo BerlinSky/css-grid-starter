@@ -2,11 +2,11 @@ import { lastNameMin, magicIdLength } from "./validation-rules"
 import { lastNameInput, magicIdInput } from "./validator"
 
 export const validateSearchInputs = () => {
-  const validateResult = lastNameMin({ targetInput: lastNameInput(), messageList: [] });
-  console.log(validateResult);
+  const messageList = lastNameMin({ targetInput: lastNameInput(), messageList: [] });
+  console.log(messageList);
 
-  const validateResult2 = magicIdLength({ targetInput: magicIdInput(), messageList: validateResult.messageList });
-  console.log(validateResult2);
+  const messageList2 = magicIdLength({ targetInput: magicIdInput(), messageList: messageList });
+  console.log(messageList2);
 
-  return validateResult2;
+  return messageList2;
 }
