@@ -1,32 +1,7 @@
 import { isDocReady, qs }from "./library/html-dom"
 import { simpleSearchContainerMarkup } from "./components/simple-search-widget"
 
-// Set up validation rules
-const lastNameMin = ({ targetInput, messageList = [] }) => {
-  if (targetInput.min < 2) {
-    messageList = [
-      ...messageList,
-      "The last name must contain at least 2 characters!"
-    ]
-  }
-  return {
-    targetInput,
-    messageList
-  };
-}
-
-const magicIdLength = ({ targetInput, messageList = [] }) => {
-  if (targetInput.length !== 5) {
-    messageList = [
-      ...messageList,
-      "The magic ID must contain exact 5 characters!"
-    ]
-  }
-  return {
-    targetInput,
-    messageList
-  };
-}
+import { lastNameInput, magicIdLength } from "./components/validation/validation-rules"
 
 // Set up the input value: will be replaced Pick up the input value
 const lastNameInput = {
@@ -41,7 +16,6 @@ const addEventListeners = () => {
   const searchBtn = qs(".js-searchButton");
 
   searchBtn.addEventListener("click", function() {
-    console.log("here", searchBtn);
      // Validate
      const validateResult = lastNameMin({ targetInput: lastNameInput, messageList: [] });
      console.log(validateResult);
