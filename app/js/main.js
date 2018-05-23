@@ -1,7 +1,7 @@
 import { isDocReady, qs }from "./library/html-dom"
 import { simpleSearchContainerMarkup } from "./components/simple-search-widget"
 
-import { lastNameInput, magicIdLength } from "./components/validation/validation-rules"
+import { lastNameMin, magicIdLength } from "./components/validation/validation-rules"
 
 // Set up the input value: will be replaced Pick up the input value
 const lastNameInput = {
