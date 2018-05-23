@@ -19,7 +19,7 @@ const searchInputList = (inputContent) => {
   return `
     ${inputContent}
     <div class="buttonGroup">
-      <button class="inputButton">Search</button>
+      <button class="inputButton js-searchButton">Search</button>
     </div>
     <div class="buttonGroup">
       <button class="inputButton">Clear</button>

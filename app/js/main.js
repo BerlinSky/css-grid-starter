@@ -37,17 +37,28 @@ const magicIdInput = {
   length: 6
 }
 
+const addEventListeners = () => {
+  const searchBtn = qs(".js-searchButton");
+
+  searchBtn.addEventListener("click", function() {
+    console.log("here", searchBtn);
+     // Validate
+     const validateResult = lastNameMin({ targetInput: lastNameInput, messageList: [] });
+     console.log(validateResult);
+
+     const validateResult2 = magicIdLength({ targetInput: magicIdInput, messageList: validateResult.messageList });
+     console.log(validateResult2);
+  });
+
+  return searchBtn;
+}
+
 const createSearchContainer = () => {
-
-   // Validate
-   const validateResult = lastNameMin({ targetInput: lastNameInput, messageList: [] });
-   console.log(validateResult);
-
-   const validateResult2 = magicIdLength({ targetInput: magicIdInput, messageList: validateResult.messageList });
-   console.log(validateResult2);
 
   const widgetContainer = qs('.widgetContainer');
   widgetContainer.innerHTML = simpleSearchContainerMarkup();
+
+  addEventListeners()
 }
 
 isDocReady(createSearchContainer);
