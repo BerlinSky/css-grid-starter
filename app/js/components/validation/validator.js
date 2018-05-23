@@ -8,8 +8,5 @@ export const lastNameInput = () => {
 
 export const magicIdInput = () => {
   const elem = qs("input[name='magicName'].js-searchInput ");
-
-  console.log(elem.value.length);
-
   return { length: elem.value.length };
 }
