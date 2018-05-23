@@ -15,33 +15,6 @@ const searchInputGroups = (content) => {
   `;
 }
 
-const renderFormInputs = () => {
-  const searchFormInputs = [
-    {
-      inputName: "firstName",
-      labelText: "First Name",
-      placeHolder: "Enter first name"
-    },
-    {
-      inputName: "lasttName",
-      labelText: "Last Name",
-      placeHolder: "Enter last name"
-    },
-    {
-      inputName: "magicName",
-      labelText: "Magic Name",
-      placeHolder: "Enter Magic name"
-    },
-  ];
-
-  return searchFormInputs.map(input => `
-    <div class="inputGroup">
-      <label for="${input.inputName}">${input.labelText}</label>
-      <input type="text" id="${input.inputName}" name="${input.inputName}" placeholder="${input.placeHolder}" />
-    </div>
-  `).join('');
-}
-
 const searchInputList = (inputContent) => {
   return `
     ${inputContent}
@@ -59,7 +32,34 @@ const searchInputList = (inputContent) => {
   `;
 }
 
+const searchFormInputs = [
+  {
+    inputName: "firstName",
+    labelText: "First Name",
+    placeHolder: "Enter first name"
+  },
+  {
+    inputName: "lasttName",
+    labelText: "Last Name",
+    placeHolder: "Enter last name"
+  },
+  {
+    inputName: "magicName",
+    labelText: "Magic Name",
+    placeHolder: "Enter Magic name"
+  },
+];
+
+const renderFormInputs = (inputs) => {
+  return inputs.map(input => `
+    <div class="inputGroup">
+      <label for="${input.inputName}">${input.labelText}</label>
+      <input type="text" id="${input.inputName}" name="${input.inputName}" placeholder="${input.placeHolder}" />
+    </div>
+  `).join('');
+}
+
 export const simpleSearchContainerMarkup = () => {
   const builder = compose(searchContainer, searchInputGroups, searchInputList, renderFormInputs);
-  return builder();
+  return builder(searchFormInputs);
 }
