@@ -2,20 +2,8 @@ import { isDocReady, qs }from "./library/html-dom"
 import { simpleSearchContainerMarkup } from "./components/simple-search-widget"
 
 import { lastNameMin, magicIdLength } from "./components/validation/validation-rules"
+import { lastNameInput, magicIdInput } from "./components/validation/validator"
 
-// Set up the input value: will be replaced Pick up the input value
-const lastNameInput = () => {
-  const elem = qs("input[name='lasttName'].js-searchInput ");
-  return { min: elem.value.length }
-}
-
-const magicIdInput = () => {
-  const elem = qs("input[name='magicName'].js-searchInput ");
-
-  console.log(elem.value.length);
-
-  return { length: elem.value.length };
-}
 
 const addEventListeners = () => {
   const searchBtn = qs(".js-searchButton");
