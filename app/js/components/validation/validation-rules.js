@@ -1,5 +1,6 @@
 // Set up validation rules
 export const lastNameMin = ({ targetInput }) => (messageList) => {
+
   if (targetInput.min < 2) {
     messageList = [
       ...messageList,
@@ -11,6 +12,7 @@ export const lastNameMin = ({ targetInput }) => (messageList) => {
       ...messageList
     ]
   }
+
   return messageList
 }
 

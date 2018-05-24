@@ -10,7 +10,5 @@ export const validateSearchInputs = () => {
   const validateAll = compose(validateMagicIdLength, validateLastNameMin);
   const messageList = validateAll({ messageList: [] });
 
-  console.log(messageList);
-
   return messageList;
 }
