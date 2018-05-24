@@ -1,20 +1,11 @@
 import { isDocReady, qs }from "./library/html-dom"
-import { simpleSearchContainerMarkup } from "./components/simple-search-widget"
-
-import { validateSearchInputs } from "./components/validation/validate-engine"
-
-const addEventListeners = () => {
-  const searchBtn = qs(".js-searchButton");
-  searchBtn.addEventListener("click", validateSearchInputs);
-  return searchBtn;
-}
+import { simpleSearchContainerMarkup, addSimpleSearchContainerEvent } from "./components/simple-search-widget"
 
 const createSearchContainer = () => {
-
   const widgetContainer = qs('.widgetContainer');
   widgetContainer.innerHTML = simpleSearchContainerMarkup();
 
-  addEventListeners()
+  addSimpleSearchContainerEvent()
 }
 
 isDocReady(createSearchContainer);

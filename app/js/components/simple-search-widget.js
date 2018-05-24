@@ -1,4 +1,7 @@
 import { compose } from "../library/functional"
+import { qs } from "../library/html-dom"
+
+import { validateSearchInputs } from "./validation/validate-engine"
 
 // Create searchContainer
 const searchContainer = (content) => {
@@ -62,4 +65,10 @@ const renderFormInputs = (inputs) => {
 export const simpleSearchContainerMarkup = () => {
   const builder = compose(searchContainer, searchInputGroups, searchInputList, renderFormInputs);
   return builder(searchFormInputs);
+}
+
+export const addSimpleSearchContainerEvent = () => {
+  const searchBtn = qs(".js-searchButton");
+  searchBtn.addEventListener("click", validateSearchInputs);
+  return searchBtn;
 }
