@@ -29,7 +29,7 @@ const searchInputList = (inputContent) => {
     </div>
     <div class="messagePanel">
       <div class="errorMessage">
-        <span>Please enter the correct value</span>
+        <span>...</span>
       </div>
     </div>
   `;
@@ -62,6 +62,14 @@ const renderFormInputs = (inputs) => {
   `).join('');
 }
 
+const searchAction = () => {
+  const messageList = validateSearchInputs();
+  const messageText = messageList.map(msg => `<div> ${msg}</div>`).join('');
+
+  const elem = qs('.messagePanel > .errorMessage');
+  elem.innerHTML = messageText;
+}
+
 export const simpleSearchContainerMarkup = () => {
   const builder = compose(searchContainer, searchInputGroups, searchInputList, renderFormInputs);
   return builder(searchFormInputs);
@@ -69,6 +77,6 @@ export const simpleSearchContainerMarkup = () => {
 
 export const addSimpleSearchContainerEvent = () => {
   const searchBtn = qs(".js-searchButton");
-  searchBtn.addEventListener("click", validateSearchInputs);
+  searchBtn.addEventListener("click", searchAction);
   return searchBtn;
 }
