@@ -68,6 +68,8 @@ const searchAction = () => {
 
   const elem = qs('.messagePanel > .errorMessage');
   elem.innerHTML = messageText;
+
+  fetchSomething();
 }
 
 export const simpleSearchContainerMarkup = () => {
@@ -79,4 +81,33 @@ export const addSimpleSearchContainerEvent = () => {
   const searchBtn = qs(".js-searchButton");
   searchBtn.addEventListener("click", searchAction);
   return searchBtn;
+}
+
+function fetchSomething() {
+  // js fetch
+  const url = `https://jsonplaceholder.typicode.com/posts`;
+
+  const data = {
+    title: 'foo',
+    body: 'bar',
+    userId: 2
+  }
+
+  // Create our request constructor with all the parameters we need
+  const request = new Request(url, {
+    method: 'POST',
+    body: data,
+    // headers: new Headers()
+    credentials: 'include',
+    headers: {}
+  });
+
+  fetch(request)
+    .then((resp) => resp.json())
+    .then(function(data) {
+      console.log(data);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
 }
