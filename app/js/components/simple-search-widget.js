@@ -85,21 +85,22 @@ export const addSimpleSearchContainerEvent = () => {
 
 function fetchSomething() {
   // js fetch
-  const url = `https://jsonplaceholder.typicode.com/posts`;
+  const url = `http://localhost:3001/posts`;
 
-  const data = {
-    title: 'foo',
-    body: 'bar',
-    userId: 2
-  }
+  // const data = {
+  //   title: 'foo',
+  //   body: 'bar',
+  //   userId: 2
+  // }
 
-  // Create our request constructor with all the parameters we need
   const request = new Request(url, {
     method: 'POST',
-    body: data,
+    // body: data,
     // headers: new Headers()
     credentials: 'include',
-    headers: {}
+    headers: {
+      'Content-Type': 'application/json'
+    }
   });
 
   fetch(request)
