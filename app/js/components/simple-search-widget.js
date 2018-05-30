@@ -69,7 +69,7 @@ const searchAction = () => {
   const elem = qs('.messagePanel > .errorMessage');
   elem.innerHTML = messageText;
 
-  fetchSomething();
+  fetchData();
 }
 
 export const simpleSearchContainerMarkup = () => {
@@ -83,20 +83,18 @@ export const addSimpleSearchContainerEvent = () => {
   return searchBtn;
 }
 
-function fetchSomething() {
-  // js fetch
-  const url = `http://localhost:3001/posts`;
+function fetchData() {
+  const url = `http://localhost:3001/users`;
 
-  // const data = {
-  //   title: 'foo',
-  //   body: 'bar',
-  //   userId: 2
-  // }
+  const data = {
+    firstName: 'john',
+    lastName: 'Smith',
+    magicId: 211
+  }
 
   const request = new Request(url, {
     method: 'POST',
-    // body: data,
-    // headers: new Headers()
+    body: data,
     credentials: 'include',
     headers: {
       'Content-Type': 'application/json'
