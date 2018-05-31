@@ -33,11 +33,15 @@ const activateImageTag = () => {
 
   elemList.forEach(function(elem) {
     elem.addEventListener("click", function(e) {
-      addImageSource(e.target.src);
+      addImageSource(e.target.getAttribute("data-fullpath"));
       showMiniLgithbox();
     });
   });
 }
+
+// const allImageList = () => {
+//   const imageList = document.querySelectorAll('.js-lbImage');
+// }
 
 $(function () {
   initMiniLightbox();
