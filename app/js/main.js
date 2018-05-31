@@ -1,11 +1,11 @@
 import { initMiniLightbox, showMiniLgithbox, configureMiniLightbox } from "./component/mini-lightbox"
 
-const setupMiniLightbox = (imagePath) => {
+const setupMiniLightbox = () => {
   const config = {
     'class': 'lightboxContainer',
     'content': `
-        <div class="lightboxContent">
-          <img src=${imagePath}>
+        <div class="lightboxContent js-lightboxContent">
+          <img class="js-lightboxImage">
           <a class="imageNavPanel imageNavPanel--left" href="/media/photo/364/11">
             <i class="fa fa-chevron-circle-left fa-4x"></i>
           </a>
@@ -21,19 +21,28 @@ const setupMiniLightbox = (imagePath) => {
   configureMiniLightbox(config);
 }
 
-const activateButton = () => {
-  const btn = document.querySelector('.js-inputButton');
-  btn.addEventListener('click', showMiniLgithbox);
+const addImageSource = (imagePath) => {
+  const imgElem = document.querySelector('.js-lightboxImage');
+  imgElem.src = imagePath;
 
-  // const btn2 = document.querySelector('.js-inputButton2');
-  // btn2.addEventListener('click', hideMiniLgithbox);
+  return imgElem;
+}
+
+const activateImageTag = () => {
+  const elemList = document.querySelectorAll('.js-lbImage');
+
+  elemList.forEach(function(elem) {
+    elem.addEventListener("click", function(e) {
+      addImageSource(e.target.src);
+      showMiniLgithbox();
+    });
+  });
 }
 
 $(function () {
   initMiniLightbox();
 
-  const imagePath = "http://cdn.tmasdigital.com/non_secure/images/temp_mastersite/galleries/132_t.jpg";
+  setupMiniLightbox();
 
-  setupMiniLightbox(imagePath);
-  activateButton();
+  activateImageTag();
 });
