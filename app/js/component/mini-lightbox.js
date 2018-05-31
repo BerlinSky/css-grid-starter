@@ -1,5 +1,7 @@
 const wrapperId = "miniLB__wrapper";
 const baselayerId = 'miniLB__baselayer';
+const fixtureId = "miniLB__fixture";
+const popupId = "miniLB__popup";
 
 const createBaseLayer= () => {
   const elem = document.createElement('div');
@@ -18,11 +20,28 @@ const createOverlayWrapper = () => {
   return elem;
 }
 
+const createFixture = () => {
+  const elem = document.createElement('div');
+  elem.id = fixtureId;
+  elem.setAttribute('style', 'position:fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);-webkit-transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);opacity:1;display:none;');
+  document.body.appendChild(elem);
+
+  return elem;
+}
+
+const createPopup = () => {
+  const elem = document.createElement('div');
+  elem.id = popupId;
+  return elem;
+}
 const createMinLightbox = () => {
   const wrapper = createOverlayWrapper();
   const baseLayer = createBaseLayer();
   wrapper.appendChild(baseLayer);
-  // createfixture()
+
+  const fixture = createFixture();
+  const popup = createPopup();
+  fixture.appendChild(popup)
 }
 
 const escapeMe = () => {
@@ -43,9 +62,11 @@ export const initMiniLightbox = () => {
 export const showMiniLgithbox = () => {
   document.querySelector("#" + wrapperId).style.display = 'block';
   document.querySelector("#" + baselayerId).style.display = 'block';
+  document.querySelector("#" + fixtureId).style.display = 'block';
 }
 
 export const hideMiniLgithbox = () => {
   document.querySelector("#" + wrapperId).style.display = 'none';
   document.querySelector("#" + baselayerId).style.display = 'none';
+  document.querySelector("#" + fixtureId).style.display = 'none';
 }
