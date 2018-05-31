@@ -23,7 +23,18 @@ const createOverlayWrapper = () => {
 const createFixture = () => {
   const elem = document.createElement('div');
   elem.id = fixtureId;
-  elem.setAttribute('style', 'position:fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);-webkit-transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);opacity:1;display:none;');
+  elem.setAttribute('style', `
+      position:fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      width:90%;
+      height:90%;
+      opacity:1;display:none;
+    `
+  );
   document.body.appendChild(elem);
 
   return elem;
@@ -69,4 +80,11 @@ export const hideMiniLgithbox = () => {
   document.querySelector("#" + wrapperId).style.display = 'none';
   document.querySelector("#" + baselayerId).style.display = 'none';
   document.querySelector("#" + fixtureId).style.display = 'none';
+}
+
+export const configureMiniLightbox = (config) => {
+  const elem = document.querySelector("#" + popupId);
+  elem.setAttribute('class', config.class);
+  elem.innerHTML = config.content;
+  return elem;
 }
