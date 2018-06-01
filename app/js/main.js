@@ -23,9 +23,7 @@ const setupMiniLightbox = () => {
 
 const addImageSource = (imagePath) => {
   const imgElem = document.querySelector('.js-lightboxImage');
-  imgElem.src = imagePath;
-
-  return imgElem;
+  imgElem.setAttribute("src", imagePath);
 }
 
 const activateImageTag = () => {
@@ -33,9 +31,7 @@ const activateImageTag = () => {
   elemList.forEach(function(elem) {
     elem.addEventListener("click", function(e) {
       addImageSource(e.target.getAttribute("data-fullpath"));
-      // const t = getNextImageListItem(e.target);
 
-      // console.log('t ', t);
       showMiniLgithbox();
     });
   });
