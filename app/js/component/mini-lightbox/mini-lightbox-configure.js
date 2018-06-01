@@ -1,4 +1,4 @@
-import { initMiniLightbox, showMiniLgithbox, configureMiniLightbox } from "./mini-lightbox"
+import { initMiniLightbox, showMiniLgithbox, configureMiniLightbox } from "./mini-lightbox";
 
 const addImageSource = (imagePath) => {
   const imgElem = document.querySelector('.js-lightboxImage');
