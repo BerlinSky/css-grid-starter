@@ -5,10 +5,63 @@ import { validateSearchInputs } from "./validation/validate-engine"
 
 import { getUrl, createRequest, fetchJsonData } from "../services/data-service";
 
+const createResultTable =() => {
+  return `
+    <table id=jaeger-specs>
+      <caption>Jaeger Technical Specifications</caption>
+      <thead>
+        <tr>
+          <th></th>
+          <th scope=col>Country
+          <th scope=col>Height<span> (meters)</span>
+          <th scope=col>Weight<span> (tonnes)</span>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope=row>Gipsy Danger
+          <td>United States
+          <td>79
+          <td>1980
+        </tr>
+        <tr>
+          <th scope=row>Striker Eureka
+          <td>Australia
+          <td>76
+          <td>1850
+        </tr>
+        <tr>
+          <th scope=row>Crimson Typhoon
+          <td>China
+          <td>76
+          <td>1722
+        </tr>
+        <tr>
+          <th scope=row>Coyote Tango
+          <td>Japan
+          <td>86
+          <td>2312
+        </tr>
+        <tr>
+          <th scope=row>Cherno Alpha
+          <td>Russia
+          <td>85
+          <td>2412
+        </tr>
+      </tbody>
+    </table>
+  `;
+}
+
 // Create searchContainer
 const searchContainer = (content) => {
   return `<div class="searchContainer">
     ${ content }
+    </div>
+    <div class="resultsContainer">
+      <div class="resulstWrapper">
+        ${ createResultTable() }
+      </div>
     </div>
   `;
 }
@@ -73,6 +126,8 @@ const searchAction = () => {
 
   fetchUsers();
 }
+
+
 
 export const simpleSearchContainerMarkup = () => {
   const builder = compose(searchContainer, searchInputGroups, searchInputList, renderFormInputs);
