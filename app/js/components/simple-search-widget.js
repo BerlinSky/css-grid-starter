@@ -8,42 +8,42 @@ import { getUrl, createRequest, fetchJsonData } from "../services/data-service";
 const createResultTable =() => {
   return `
     <table class="resultsTable">
-      <caption class="resultsTable__caption">Jaeger Technical Specifications</caption>
+      <caption class="resultsTable__caption">Search Results Display</caption>
       <thead>
         <tr>
           <th></th>
-          <th scope=col>Country
-          <th scope=col>Height<span> (meters)</span>
-          <th scope=col>Weight<span> (tonnes)</span>
+          <th scope="col">First Name
+          <th scope="col">Last Name</span>
+          <th scope="col">Magic Id</span>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th scope=row>Gipsy Danger
-          <td>United States
-          <td>79
-          <td>1980
+          <th scope="row">1
+          <td>John
+          <td>Smith
+          <td>211
         </tr>
         <tr>
-          <th scope=row>Striker Eureka
+          <th scope="row">2
           <td>Australia
           <td>76
           <td>1850
         </tr>
         <tr>
-          <th scope=row>Crimson Typhoon
+          <th scope="row">3
           <td>China
           <td>76
           <td>1722
         </tr>
         <tr>
-          <th scope=row>Coyote Tango
+          <th scope="row">4
           <td>Japan
           <td>86
           <td>2312
         </tr>
         <tr>
-          <th scope=row>Cherno Alpha
+          <th scope="row">5
           <td>Russia
           <td>85
           <td>2412
