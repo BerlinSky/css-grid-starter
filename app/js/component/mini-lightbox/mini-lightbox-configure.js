@@ -1,12 +1,12 @@
-import { initMiniLightbox, showMiniLgithbox, configureMiniLightbox } from "./mini-lightbox";
+import { qs, qsAll, initMiniLightbox, showMiniLgithbox, configureMiniLightbox } from "./mini-lightbox";
 
 const addImageSource = (imagePath) => {
-  const imgElem = document.querySelector('.js-lightboxImage');
+  const imgElem = qs('.js-lightboxImage');
   imgElem.setAttribute("src", imagePath);
 }
 
 const activateImageTag = () => {
-  const elemList = document.querySelectorAll('.js-lbImage');
+  const elemList = qsAll('.js-lbImage');
   elemList.forEach(function(elem) {
     elem.addEventListener("click", function(e) {
       addImageSource(e.target.getAttribute("data-fullpath"));
@@ -17,7 +17,7 @@ const activateImageTag = () => {
 }
 
 const getNextImagePath = (currentImagePath) => {
-  const imageList = document.querySelectorAll('.js-lbImage');
+  const imageList = qsAll('.js-lbImage');
 
   for (let i = 0; i < imageList.length; i++) {
     const thisPath = imageList[i].getAttribute('data-fullPath');
@@ -32,7 +32,7 @@ const getNextImagePath = (currentImagePath) => {
 }
 
 const getPrevImagePath = (currentImagePath) => {
-  const imageList = document.querySelectorAll('.js-lbImage');
+  const imageList = qsAll('.js-lbImage');
 
   for (let i = 0; i < imageList.length; i++) {
     const thisPath = imageList[i].getAttribute('data-fullPath');
@@ -47,10 +47,10 @@ const getPrevImagePath = (currentImagePath) => {
 }
 
 const activateNextButton = () => {
-  const elem = document.querySelector('.js-lbImage__next');
+  const elem = qs('.js-lbImage__next');
 
   elem.addEventListener('click', function() {
-    const imageElem = document.querySelector('.js-lightboxImage');
+    const imageElem = qs('.js-lightboxImage');
 
     const nextImagePath = getNextImagePath(imageElem.getAttribute('src'));
     console.log('nextImagePath', nextImagePath);
@@ -60,10 +60,10 @@ const activateNextButton = () => {
 }
 
 const activatePrevButton = () => {
-  const elem = document.querySelector('.js-lbImage__prev');
+  const elem = qs('.js-lbImage__prev');
 
   elem.addEventListener('click', function() {
-    const imageElem = document.querySelector('.js-lightboxImage');
+    const imageElem = qs('.js-lightboxImage');
     const nextImagePath = getPrevImagePath(imageElem.getAttribute('src'));
     console.log('nextImagePath', nextImagePath);
 

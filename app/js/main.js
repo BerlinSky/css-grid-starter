@@ -1,5 +1,8 @@
+import {isDocReady } from "./library/html-doms";
 import { prepareMiniLightBox } from "./component/mini-lightbox/mini-lightbox-configure";
 
-$(function () {
-  prepareMiniLightBox();
-});
+isDocReady(prepareMiniLightBox);
+
+// $(function () {
+//   prepareMiniLightBox();
+// });

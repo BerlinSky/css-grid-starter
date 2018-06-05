@@ -3,6 +3,15 @@ const baselayerId = 'miniLB__baselayer';
 const fixtureId = "miniLB__fixture";
 const popupId = "miniLB__popup";
 
+// A generic function to select an element
+export const qs = (elemSelector) => {
+  return document.querySelector(elemSelector);
+}
+
+export const qsAll = (elemSelector) => {
+  return document.querySelectorAll(elemSelector);
+}
+
 const createBaseLayer= () => {
   const elem = document.createElement('div');
   elem.id = baselayerId;
@@ -64,7 +73,7 @@ const createMinLightbox = () => {
 }
 
 const escapeMe = () => {
-  document.querySelector("#" + wrapperId).addEventListener('click', hideMiniLgithbox);
+  qs("#" + wrapperId).addEventListener('click', hideMiniLgithbox);
 
   window.addEventListener("keydown", function(e) {
     if (e.keyCode == 27) {
@@ -119,15 +128,15 @@ export const initMiniLightbox = () => {
 }
 
 export const showMiniLgithbox = () => {
-  document.querySelector("#" + wrapperId).style.display = 'block';
-  document.querySelector("#" + baselayerId).style.display = 'block';
-  document.querySelector("#" + fixtureId).style.display = 'block';
+  qs("#" + wrapperId).style.display = 'block';
+  qs("#" + baselayerId).style.display = 'block';
+  qs("#" + fixtureId).style.display = 'block';
 }
 
 export const hideMiniLgithbox = () => {
-  document.querySelector("#" + wrapperId).style.display = 'none';
-  document.querySelector("#" + baselayerId).style.display = 'none';
-  document.querySelector("#" + fixtureId).style.display = 'none';
+  qs("#" + wrapperId).style.display = 'none';
+  qs("#" + baselayerId).style.display = 'none';
+  qs("#" + fixtureId).style.display = 'none';
 }
 
 export const configureMiniLightbox = (config) => {
