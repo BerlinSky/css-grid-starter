@@ -99,26 +99,6 @@
           text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
         }
 
-        tr:nth-child(1) th {
-          background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/gipsy-danger.jpg);
-        }
-
-        tr:nth-child(2) th {
-          background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/striker-eureka.jpg);
-        }
-
-        tr:nth-child(3) th {
-          background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/crimson-typhoon.jpg);
-        }
-
-        tr:nth-child(4) th {
-          background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/coyote-tango.jpg);
-        }
-
-        tr:nth-child(5) th {
-          background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/cherno-alpha.jpg);
-        }
-
         tr:not(:last-child) {
           border-bottom: 1px solid #222;
         }
