@@ -68,5 +68,87 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
+
+    .resultsTable {
+      border-collapse: collapse;
+      margin: 1.5rem auto;
+
+      &__caption {
+        margin-bottom: 2rem;
+        font-size: 2rem;
+      }
+
+      td, th {
+        text-align: center;
+        padding: 0.85rem;
+      }
+
+      th[scope] {
+        color: #fff;
+        background-color: #000;
+        font-weight: normal;
+      }
+
+      tbody {
+        border: 1px solid #222;
+
+        th {
+          font-size: 1.1rem;
+          border-right: 1px solid #222;
+          background-size: cover;
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+        }
+
+        tr:nth-child(1) th {
+          background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/gipsy-danger.jpg);
+        }
+
+        tr:nth-child(2) th {
+          background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/striker-eureka.jpg);
+        }
+
+        tr:nth-child(3) th {
+          background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/crimson-typhoon.jpg);
+        }
+
+        tr:nth-child(4) th {
+          background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/coyote-tango.jpg);
+        }
+
+        tr:nth-child(5) th {
+          background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/cherno-alpha.jpg);
+        }
+
+        tr:not(:last-child) {
+          border-bottom: 1px solid #222;
+        }
+
+        th[scope] {
+          border: 1px solid #222;
+          border-bottom: none;
+        }
+
+        td:not(:last-child) {
+          border-right: 1px solid #222;
+        }
+
+        td {
+          background: hsl(195, 100%, 20%);
+          color: #fff;
+        }
+
+      }
+
+      @media screen and (max-width: 700px) {
+        td, th {
+          padding: .5rem;
+          font-size: 1.1rem;
+        }
+
+        th span {
+          display: none;
+        }
+      }
+    }
   }
 }

@@ -7,8 +7,8 @@ import { getUrl, createRequest, fetchJsonData } from "../services/data-service";
 
 const createResultTable =() => {
   return `
-    <table id=jaeger-specs>
-      <caption>Jaeger Technical Specifications</caption>
+    <table class="resultsTable">
+      <caption class="resultsTable__caption">Jaeger Technical Specifications</caption>
       <thead>
         <tr>
           <th></th>
