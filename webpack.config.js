@@ -19,6 +19,7 @@ const cleanWebPackPlugin = new CleanWebpackPlugin(['./dist'])
 const entryConfig = {
   // vendor: ['jquery', 'select2', 'ramda', 'validate.js'],
   index: [
+    "babel-polyfill",
     path.resolve(__dirname, './app/js/main.js'),
     path.resolve(__dirname, './app/sass/main.scss')
   ]

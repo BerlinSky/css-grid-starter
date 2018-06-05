@@ -3,6 +3,8 @@ import { qs } from "../library/html-dom"
 
 import { validateSearchInputs } from "./validation/validate-engine"
 
+import { getUrl, createRequest, fetchJsonData } from "../services/data-service";
+
 // Create searchContainer
 const searchContainer = (content) => {
   return `<div class="searchContainer">
@@ -69,7 +71,7 @@ const searchAction = () => {
   const elem = qs('.messagePanel > .errorMessage');
   elem.innerHTML = messageText;
 
-  fetchData();
+  fetchUsers();
 }
 
 export const simpleSearchContainerMarkup = () => {
@@ -83,30 +85,26 @@ export const addSimpleSearchContainerEvent = () => {
   return searchBtn;
 }
 
-function fetchData() {
-  const url = `http://localhost:3001/users`;
+function fetchUsers() {
+  const url = getUrl();
 
   const data = {
     firstName: 'john',
     lastName: 'Smith',
     magicId: 211
   }
+  // const data = '';
 
-  const request = new Request(url, {
-    method: 'POST',
-    body: data,
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  });
-
-  fetch(request)
-    .then((resp) => resp.json())
-    .then(function(data) {
-      console.log(data);
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
+  const request = createRequest(url, data);
+  fetchJsonData(request, test);
 }
+
+const test = (userData) => {
+  userData.map( d => {
+    console.log(d.firstName);
+    console.log(d.lastName);
+    console.log(d.magicId);
+  })
+}
+
+
