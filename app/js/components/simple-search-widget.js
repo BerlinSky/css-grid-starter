@@ -5,7 +5,7 @@ import { validateSearchInputs } from "./validation/validate-engine"
 
 import { getUrl, createRequest, fetchJsonData } from "../services/data-service";
 
-const createResultTable =() => {
+const createResultTable = () => {
   return `
     <table class="resultsTable">
       <caption class="resultsTable__caption">Search Results Display</caption>
@@ -18,36 +18,6 @@ const createResultTable =() => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1
-          <td>John
-          <td>Smith
-          <td>211
-        </tr>
-        <tr>
-          <th scope="row">2
-          <td>Australia
-          <td>76
-          <td>1850
-        </tr>
-        <tr>
-          <th scope="row">3
-          <td>China
-          <td>76
-          <td>1722
-        </tr>
-        <tr>
-          <th scope="row">4
-          <td>Japan
-          <td>86
-          <td>2312
-        </tr>
-        <tr>
-          <th scope="row">5
-          <td>Russia
-          <td>85
-          <td>2412
-        </tr>
       </tbody>
     </table>
   `;
@@ -127,8 +97,6 @@ const searchAction = () => {
   fetchUsers();
 }
 
-
-
 export const simpleSearchContainerMarkup = () => {
   const builder = compose(searchContainer, searchInputGroups, searchInputList, renderFormInputs);
   return builder(searchFormInputs);
@@ -151,15 +119,23 @@ function fetchUsers() {
   // const data = '';
 
   const request = createRequest(url, data);
-  fetchJsonData(request, test);
+  fetchJsonData(request, paintResultsTable);
 }
 
-const test = (userData) => {
-  userData.map( d => {
-    console.log(d.firstName);
-    console.log(d.lastName);
-    console.log(d.magicId);
-  })
+const paintResultsTable = (userData) => {
+  const table = qs('.resulstWrapper > .resultsTable tbody')
+
+  const dataSet = userData.map( d =>
+      `<tr>
+        <th scope="row">${d.id}
+        <td>${ d.firstName }</div>
+        <td>${ d.lastName }</div>
+        <td>${ d.magicId }</div>
+      </tr>`
+    ).join('');
+
+  table.innerHTML = dataSet;
+  console.log(dataSet);
 }
 
 
