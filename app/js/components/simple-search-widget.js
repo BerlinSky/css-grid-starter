@@ -116,7 +116,6 @@ function fetchUsers() {
     lastName: 'Smith',
     magicId: 211
   }
-  // const data = '';
 
   const request = createRequest(url, data);
   fetchJsonData(request, paintResultsTable);
@@ -135,7 +134,6 @@ const paintResultsTable = (userData) => {
     ).join('');
 
   table.innerHTML = dataSet;
-  console.log(dataSet);
 }
 
 
