@@ -11,10 +11,20 @@ export const getUrl = () => {
 }
 
 export const createRequest = (url, data) => {
+  const qs = '?' + Object.keys(data)
+    .map(k => `${encodeURIComponent(k)}=${encodeURIComponent(data[k])}`)
+    .join('&');
+
+  console.log('qs', qs);
+
+  url = url + qs;
+
+  console.log('url', url);
+
+    // url +
   return new Request(url, {
     // method: 'POST',
     method: 'GET',
-    body: data,
     credentials: 'include',
     headers: {
       'Content-Type': 'application/json'
@@ -22,6 +32,17 @@ export const createRequest = (url, data) => {
   });
 }
 
+// export const createRequest = (url, data) => {
+//   return new Request(url, {
+//     // method: 'POST',
+//     method: 'GET',
+//     body: data,
+//     credentials: 'include',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     }
+//   });
+// }
 export async function fetchJsonData(request, onSuccess) {
   try {
     const fetchResult = fetch(request);

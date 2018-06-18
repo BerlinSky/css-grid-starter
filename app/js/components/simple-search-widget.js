@@ -112,7 +112,7 @@ function fetchUsers() {
   const url = getUrl();
 
   const data = {
-    firstName: 'john',
+    firstName: 'John',
     lastName: 'Smith',
     magicId: 211
   }
